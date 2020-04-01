@@ -1,6 +1,6 @@
 # Phonebot with IBM Voice Agent and Backend Integration
 
-Phonebots ca help businesses to provide information and answer simple questions. This tutorial can be used to build a first prototype, develop the phone dialog, and test the components.
+Phonebots ca help businesses to provide information and answer simple questions. This tutorial can be used to build a first prototype, develop the phone dialog, and test the components. 
 
 ## Solution Overview
 The solution consist of the following components

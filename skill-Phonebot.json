@@ -1,0 +1,206 @@
+{
+  "intents": [
+    {
+      "intent": "openingHours",
+      "examples": [
+        {
+          "text": "haben Sie heute geöffnet?"
+        },
+        {
+          "text": "wann haben Sie geöffnet"
+        },
+        {
+          "text": "wann kann ich zu Ihnen kommen"
+        },
+        {
+          "text": "haben Sie morgen geöffnet"
+        },
+        {
+          "text": "öffnungszeiten"
+        },
+        {
+          "text": "was sind Ihre Öffnungszeiten"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "deadlineExtension",
+      "examples": [
+        {
+          "text": "Besteht die Möglichkeit einer Fristverlängerung für die Abgabe von Steuererklärungen?"
+        },
+        {
+          "text": "Wann muß ich die Steuererklärung abgeben"
+        },
+        {
+          "text": "Kann man die Steuererklärung später abgeben?"
+        },
+        {
+          "text": "Fristverlängerung"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "taxRelief",
+      "examples": [
+        {
+          "text": "Gibt es steuerliche Erleichterungen für Unternehmen, die durch das Coronavirus wirtschaftliche Schäden erleiden"
+        },
+        {
+          "text": "können die Steuern reduziert werden"
+        },
+        {
+          "text": "steuerliche Erleichterungen"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "opening hours",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Wir haben werktags von 9 bis 17 Uhr geöffnet"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#openingHours",
+      "dialog_node": "node_10_1585665830995",
+      "previous_sibling": "Willkommen"
+    },
+    {
+      "type": "standard",
+      "title": "Andernfalls",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ich habe Sie nicht verstanden. Bitte formulieren Sie Ihre Aussage neu."
+              },
+              {
+                "text": "Sie können mich z.B. nach Steuererleichterungen, Fristverlängerung und Öffnungszeiten fragen."
+              },
+              {
+                "text": "Ich habe nicht verstanden, was Sie meinen."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Andernfalls",
+      "previous_sibling": "node_1_1585665526388",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Willkommen",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hallo. Wie kann ich Ihnen helfen? Sie können mir häufig gestellte steuerliche Fragen im Zusammenhang mit dem Corona-Virus stellen und Fragen zu unserem Steuerbüro stellen (Demo)."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Willkommen",
+      "previous_sibling": "node_1_1585665815422"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Unternehmerinnen und Unternehmer, die unmittelbar durch das Coronavirus nicht unerhebliche wirtschaftliche Schäden erleiden, können bis zum 31. Dezember 2020 eine Stundung von bis zu diesem Zeitpunkt bereits fälligen oder fällig werdenden Steuern (Einkommensteuer, Körperschaftsteuer; Solidaritätszuschlag) beantragen. Auch eine zinsfreie Stundung kommt in Betracht.\n\nEs besteht ferner die Möglichkeit, Anträge auf Anpassung von Vorauszahlungen der Einkommen- und Körperschaftsteuer (incl. Solidaritätszuschlag) sowie der Festsetzung des Gewerbesteuermessbetrags für Zwecke der Vorauszahlungen zu stellen. Bei der Herabsetzung von Vorauszahlungen kann es zu Erstattungen überzahlter Beträge kommen. Die Erstattung wird mit der Bekanntgabe des die Vorauszahlung herabsetzenden Bescheides fällig (§ 220 Abs. 2 S. 2 AO).\n\nBei Unternehmerinnen und Unternehmern, die unmittelbar durch das Coronavirus nicht unerhebliche wirtschaftliche Schäden erleiden, wird bis zum 31.Dezember 2020 von der Vollstreckung rückständiger oder bis zu diesem Zeitpunkt fällig werdender Steuern (Einkommensteuer, Körperschaftsteuer, Solidaritätszuschlag) abgesehen. In den betreffenden Fällen werden die zwischen dem 19. März 2020 und dem 31.Dezember 2020 verwirkten Säumniszuschläge erlassen.   \nhttps://www.mf.niedersachsen.de/startseite/themen/steuern/antworten-auf-haufig-gestellte-steuerliche-fragen-faqs-im-zusammenhang-mit-dem-corona-virus-186548.html"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#taxRelief",
+      "dialog_node": "node_8_1585664650277",
+      "previous_sibling": "node_10_1585665830995"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Für Steuerpflichtige, die sich nicht von einem Steuerberater, Lohnsteuerhilfeverein oder einer anderen zur Beratung befugten Person beraten lassen, endet die allgemeine gesetzliche Abgabefrist für Steuererklärungen für das Kalenderjahr 2019 am 31. Juli 2020. Sollten Sie aufgrund der Corona-Pandemie nicht in der Lage sein diese Frist einzuhalten, wenden Sie sich an ihr zuständiges Finanzamt und bitten um eine Fristverlängerung. Diese ist dann ohne weiteres und ggf. auch rückwirkend möglich.\n\nSteuerpflichtige, die einen Angehörigen der steuerberatenden Berufe mit Erstellung der Steuererklärung beauftragt haben, haben die Steuererklärungen für den Veranlagungszeitraum 2019 bis zum Ablauf des Monats Februars 2021 abzugeben. Für den Veranlagungszeitraum 2018 waren die Steuererklärungen bereits bis spätestens zum Ablauf des Monats Februar 2020 abzugeben. Konnten die Berater/innen die Erklärungen aufgrund unmittelbarer und nicht unerheblicher Beeinträchtigungen durch die Corona-Pandemie unverschuldet nicht pünktlich abgeben, wird es von Seiten der Finanzverwaltung nicht beanstandet, wenn diese Erklärungen auf entsprechenden Antrag hin bis längstens 31. Mai 2020 eingereicht werden. Wurden in diesen Fällen bereits Verspätungszuschläge festgesetzt, werden diese auf Antrag erlassen."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#deadlineExtension",
+      "dialog_node": "node_1_1585665526388",
+      "previous_sibling": "node_8_1585664650277"
+    },
+    {
+      "type": "folder",
+      "title": "FAQs",
+      "dialog_node": "node_1_1585665815422"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Meinten Sie:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nichts von dem oben genannten"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Meinten Sie:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "Phonebot",
+  "language": "de",
+  "description": ""
+}

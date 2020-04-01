@@ -21,6 +21,7 @@ The solution consist of the following components
 - get a [virtual phone number](https://www.twilio.com/phone-numbers) from Twilio
 - install Node-RED on the IBM Cloud and import the [flow](Node-RED-Flow.json), see [A SHORT INTRODUCTION OF THE NODE-RED STARTER KIT ON IBM CLOUD FOR HACKATHONS](https://suedbroecker.net/2020/03/09/a-short-introduction-of-the-node-red-starter-kit-on-ibm-cloud-for-hackathons/) for instructions
 - create a [Watson Assistant](https://cloud.ibm.com/docs/services/assistant?topic=assistant-getting-started#getting-started) service and import the Watson Assistant skill file [skill-Phonebot.json](skill-Phonebot.json)
+
 Now you can already try out and adapt the dialog except from external requests. That will be configured in the next steps:
 - modify the webhook address , which is the address of the Node-RED instance
 - install the IBM Voice Agent service as described in this [video](https://www.youtube.com/watch?v=ztOme26gVuA&t=308s) and on this [guide](https://cloud.ibm.com/docs/services/voice-agent?topic=voice-agent-getting-started)

@@ -29,4 +29,9 @@ Now you can already try out and adapt the dialog, but not yet prgrammatic calls 
 
 I chose the option to create all in one step and could select the existing Watson Assistant service and skill.
 
+## Backend Application
+The Backend Application is simple:
 
+![Node-RED Flow](pb-node-red-flow.jpg)
+
+Depending on the paramater *request* a specific action is triggered. 
